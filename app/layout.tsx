@@ -22,6 +22,29 @@ export const metadata: Metadata = {
     icon: "/favicon/Icon.png",
     apple: "/apple-icon.png",
   },
+  openGraph: {
+    title: "SPlus89 - Music Performer & Hip-Hop Artist",
+    description:
+      "Maestro of hip-hop and pop fusion. Discover new albums, upcoming events, and experience where music comes to life.",
+    url: "https://splus89.vercel.app",
+    siteName: "SPlus89",
+    images: [
+      {
+        url: "/splus89-thumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "SPlus89 - Hip-Hop Artist",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SPlus89 - Music Performer & Hip-Hop Artist",
+    description:
+      "Maestro of hip-hop and pop fusion. Discover new albums, upcoming events, and experience where music comes to life.",
+    images: ["/splus89-thumbnail.png"],
+  },
 }
 
 export default function RootLayout({
