@@ -1,0 +1,10 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="37" fill="#141312"/>
+  <circle cx="90" cy="90" r="65" fill="#B5312A"/>
+  <text x="90" y="110" font-family="Arial, sans-serif" font-size="65" font-weight="bold" fill="#EFE8CE" text-anchor="middle">S</text>
+  <text x="118" y="85" font-family="Arial, sans-serif" font-size="28" font-weight="normal" fill="#D4AF37" text-anchor="middle">+</text>
+  <text x="100" y="135" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#EFE8CE" text-anchor="middle">89</text>
+  <circle cx="25" cy="25" r="2" fill="#EFE8CE" opacity="0.3"/>
+  <circle cx="35" cy="25" r="2" fill="#EFE8CE" opacity="0.3"/>
+  <circle cx="45" cy="25" r="2" fill="#EFE8CE" opacity="0.3"/>
+</svg>

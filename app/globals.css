@@ -1,0 +1,715 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================
+   Subace Font Family
+   ============================================ */
+
+@font-face {
+  font-family: "Subace";
+  src: url("/fonts/Subace-Regular.otf") format("opentype"),
+    url("/fonts/Subace-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Subace";
+  src: url("/fonts/Subace-Italic.otf") format("opentype"),
+    url("/fonts/Subace-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Subace";
+  src: url("/fonts/Subace-Condensed.otf") format("opentype"),
+    url("/fonts/Subace-Condensed.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Subace";
+  src: url("/fonts/Subace-CondensedItalic.otf") format("opentype"),
+    url("/fonts/Subace-CondensedItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Subace";
+  src: url("/fonts/Subace-Expanded.otf") format("opentype"),
+    url("/fonts/Subace-Expanded.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Subace";
+  src: url("/fonts/Subace-ExpandedItalic.otf") format("opentype"),
+    url("/fonts/Subace-ExpandedItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Exact color values from the original HTML source */
+  --background: #141312;
+  --foreground: #efe8ce;
+  --card: #1a1917;
+  --card-foreground: #f7f5ec;
+  --popover: #1a1917;
+  --popover-foreground: #f7f5ec;
+  --primary: #b5312a;
+  --primary-foreground: #f7f5ec;
+  --secondary: #9d8522;
+  --secondary-foreground: #f7f5ec;
+  --muted: #4b4945;
+  --muted-foreground: #efe8ce;
+  --accent: #b76326;
+  --accent-foreground: #f7f5ec;
+  --destructive: #b5312a;
+  --destructive-foreground: #f7f5ec;
+  --border: #4b4945;
+  --input: #4b4945;
+  --ring: #b5312a;
+  --chart-1: #b5312a;
+  --chart-2: #9d8522;
+  --chart-3: #b76326;
+  --chart-4: #8b4513;
+  --chart-5: #6b1229;
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* @theme is a Tailwind CSS v4 directive */
+/* stylelint-disable-next-line */
+@theme inline {
+  /* Adding Roc Grotesk as primary font with Kumbh Sans fallback */
+  --font-sans: "roc-grotesk", "Kumbh Sans", "Geist", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  /* Adding Subace as a retro display font option */
+  --font-subace: "Subace", "roc-grotesk", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Tailwind CSS directives */
+/* stylelint-disable-next-line */
+@layer base {
+  * {
+    /* stylelint-disable-next-line */
+    @apply border-border outline-ring/50;
+  }
+  body {
+    /* stylelint-disable-next-line */
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================
+   Subace Font Utility Classes
+   ============================================ */
+
+.font-subace {
+  font-family: "Subace", sans-serif;
+}
+
+.font-subace-condensed {
+  font-family: "Subace", sans-serif;
+  font-weight: 300;
+}
+
+.font-subace-expanded {
+  font-family: "Subace", sans-serif;
+  font-weight: 700;
+}
+
+/* ============================================
+   Scroll Animation System
+   ============================================ */
+
+/* Base state for animated elements */
+.animate-on-scroll {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When element is in view */
+.animate-on-scroll.animate-in {
+  opacity: 1;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   Fade Animations
+   ============================================ */
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeInUp.animate-in {
+  animation-name: fadeInUp;
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeInDown.animate-in {
+  animation-name: fadeInDown;
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeInLeft.animate-in {
+  animation-name: fadeInLeft;
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeInRight.animate-in {
+  animation-name: fadeInRight;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeIn.animate-in {
+  animation-name: fadeIn;
+}
+
+/* ============================================
+   Slide Animations
+   ============================================ */
+
+/* Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.slideInLeft.animate-in {
+  animation-name: slideInLeft;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.slideInRight.animate-in {
+  animation-name: slideInRight;
+}
+
+/* ============================================
+   Zoom Animations
+   ============================================ */
+
+/* Zoom In */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.zoomIn {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.zoomIn.animate-in {
+  animation-name: zoomIn;
+}
+
+/* Zoom In Up */
+@keyframes zoomInUp {
+  from {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 0.8) translate3d(0, 60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+}
+
+.zoomInUp {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.zoomInUp.animate-in {
+  animation-name: zoomInUp;
+}
+
+/* ============================================
+   Bounce Animations
+   ============================================ */
+
+/* Bounce In */
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-duration: 0.75s;
+  animation-fill-mode: both;
+}
+
+.bounceIn.animate-in {
+  animation-name: bounceIn;
+}
+
+/* ============================================
+   Animation Delays
+   ============================================ */
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+/* ============================================
+   Animation Durations
+   ============================================ */
+
+.duration-fast {
+  animation-duration: 0.5s !important;
+}
+
+.duration-normal {
+  animation-duration: 1s !important;
+}
+
+.duration-slow {
+  animation-duration: 2s !important;
+}
+
+/* ============================================
+   Hover Effects
+   ============================================ */
+
+.hover-grow {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hover-scale-image {
+  overflow: hidden;
+}
+
+.hover-scale-image img {
+  transition: transform 0.5s ease;
+}
+
+.hover-scale-image:hover img {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   Parallax Effect Base
+   ============================================ */
+
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* ============================================
+   Audio Effects / Music Bars in Navbar
+   ============================================ */
+
+/* Container for the audio effect bars */
+.sc_audio_effects {
+  height: 1.5em;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Individual sound bar */
+.sc_audio_effects > span {
+  background-color: #efe8ce;
+  position: relative;
+  border-radius: 3px;
+  min-width: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Different heights for each bar (creating the equalizer effect) */
+.sc_audio_effects > span:nth-child(1) {
+  height: 0.93em;
+}
+
+.sc_audio_effects > span:nth-child(2) {
+  height: 1.34em;
+}
+
+.sc_audio_effects > span:nth-child(3) {
+  height: 0.6em;
+}
+
+.sc_audio_effects > span:nth-child(4) {
+  height: 1.2em;
+}
+
+/* First bar has extra decorative bars on sides */
+.sc_audio_effects > span:first-child {
+  margin: 0 5px;
+}
+
+.sc_audio_effects > span:first-child:before,
+.sc_audio_effects > span:first-child:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: inline-flex;
+  margin: 0;
+  width: 2px;
+  background-color: #efe8ce;
+  border-radius: 3px;
+}
+
+.sc_audio_effects > span:first-child:before {
+  height: 1.25em;
+  left: -4px;
+}
+
+.sc_audio_effects > span:first-child:after {
+  height: 1.5em;
+  right: -4px;
+}
+
+/* Audio OFF state */
+.sc_audio_effects.sc_audio_effects_off > span {
+  opacity: 0.5;
+}
+
+/* Audio ON state - animates the bars */
+.sc_audio_effects.sc_audio_effects_on > span:first-child:before {
+  animation: music-bar 2s 0.8s ease-out alternate infinite;
+}
+
+.sc_audio_effects.sc_audio_effects_on > span:first-child:after {
+  animation: music-bar 2s 1.3s ease-out alternate infinite;
+}
+
+/* Animation keyframes for the music bars */
+@keyframes music-bar {
+  0% {
+    height: 0.5em;
+  }
+  25% {
+    height: 1em;
+  }
+  50% {
+    height: 1.5em;
+  }
+  75% {
+    height: 0.8em;
+  }
+  100% {
+    height: 1.2em;
+  }
+}
+
+/* Hover effect */
+.sc_audio_effects:hover > span {
+  background-color: #d4c89a;
+}
+
+.sc_audio_effects:hover > span:first-child:before,
+.sc_audio_effects:hover > span:first-child:after {
+  background-color: #d4c89a;
+}
+
+/* Active/playing state with more prominent animation */
+.sc_audio_effects.sc_audio_effects_playing > span {
+  animation: bounce-bar 0.6s ease-in-out infinite alternate;
+}
+
+.sc_audio_effects.sc_audio_effects_playing > span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.sc_audio_effects.sc_audio_effects_playing > span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.sc_audio_effects.sc_audio_effects_playing > span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.sc_audio_effects.sc_audio_effects_playing > span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes bounce-bar {
+  0% {
+    transform: scaleY(0.5);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
