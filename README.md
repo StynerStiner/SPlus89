@@ -29,7 +29,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/stynerdev225/SPlus89.git
+git clone https://github.com/StynerStiner/SPlus89.git
 
 # Navigate to the project
 cd SPlus89
